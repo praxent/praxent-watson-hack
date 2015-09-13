@@ -1,0 +1,62 @@
+<div class="default-page">
+  <div class="header">
+    <h1 id="main-title" class="container">Praxent Watson Hackathon</h1>
+    <h3 class="container">You're looking at: <code><%= view.pathFromApp + '.' +view.ext %></code></h3>
+  </div>
+  <div class="main container clearfix">
+    <ul class="getting-started">
+      <li class="clearfix">
+        <div class="step">
+          <div class="sprite one"></div>
+          <h3>
+            Set up Watson integration.
+          </h3>
+          <p>
+            We'll be using the <code>watson-developer-cloud</code> module to integrate with Watson.
+            Watson environment variables will be set and accessed at <code>sails.config.watson</code>.
+          </p>
+        </div>
+      </li>
+      <li class="clearfix">
+        <div class="step">
+          <div class="sprite two"></div>
+          <h3>
+            Integrate speech-to-text with tone analysis.
+          </h3>
+          <p>
+            The user will <a href="/app">record their voice through their browser</a> which will stream to Watson to provide speech-to-text.
+            Once the user has finished talking, we will run tone analysis using Watson and display the results.
+          </p>
+        </div>
+      </li>
+      <li class="clearfix">
+        <div class="step">
+          <div class="sprite three"></div>
+          <h3>
+            Bonus points! Personality analysis with Twitter.
+          </h3>
+          <p>
+            If we have time we can add personality analysis using Twitter.
+            The user will log in through Twitter and Watson will read their feed and provide a personality analysis.
+            We will use the <code>machinepack-twitter</code> module.
+          </p>
+        </div>
+      </li>
+    </ul>
+    <div class="links">
+      <ul class="link-list">
+
+        <h4>Sails Documentation</h4>
+        <a target="_blank" href="http://sailsjs.org/#!/documentation/anatomy/myApp"><li>App Structure</li></a>
+        <a target="_blank" href="http://sailsjs.org/#!/documentation/reference"><li>Reference</li></a>
+
+        <h4>Watson Reference</h4>
+        <a target="_blank" href="https://github.com/watson-developer-cloud/nodejs-wrapper"><li>Node Module</li></a>
+        <a target="_blank" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/speech-to-text.html"><li>Speech-to-Text</li></a>
+        <a target="_blank" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/tone-analyzer.html"><li>Tone Analyzer</li></a>
+        <a target="_blank" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.html"><li>Personality Insights</li></a>
+
+      </ul>
+    </div>
+  </div>
+</div>

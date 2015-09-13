@@ -1,0 +1,17 @@
+<md-content class="md-padding" layout="row" layout-align="center center" layout-fill>
+  <img ng-src="/images/watson.png" class="md-card-image" alt="IBM Watson" style="width:300px;margin-top:-80px;" />
+  <md-card flex="50" flex-sm="100" style="max-width:530px;">
+    <md-card-content>
+      <h1 class="md-title" style="margin-bottom:10px;">Tell me about your weekend!</h1>
+      <p>
+        I'll listen and respond with information about your emotional tones and communication style.
+        <em>You'll need to use Google Chrome and allow access to your microphone.</em>
+      </p>
+    </md-card-content>
+    <div layout="row" layout-align="center center" style="margin-bottom:-32px;">
+      <md-button class="md-fab md-accent" aria-label="Start Listening" ng-click="toggleListen($event)">
+        <md-icon class="material-icons inverse">mic</md-icon>
+      </md-button>
+    </div>
+  </md-card>
+</md-content>
