@@ -5,6 +5,7 @@
   "description": "Praxent hackathon Q3 2015 with Watson.",
   "keywords": [],
   "dependencies": {
+    "bower": "^1.5.2",
     "ejs": "~0.8.4",
     "forever": "^0.15.1",
     "grunt": "0.4.5",
