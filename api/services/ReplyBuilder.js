@@ -12,16 +12,25 @@ module.exports = {
     		var message,
     				color;
 
-    		var emotion = tone.emotion;
+    		var emotion = tone.emotion,
+            writing = tone.writing;
 
-    		var results = {
+    		var replies = {
           cheerful: { color: 'green', message: '(awesome)' },
           negative: { color: 'black', message: '(wat)' },
     		  angry: { color: 'black', message: '(tableflip)' },
           default: { color: 'grey', message: '¯\\_(ツ)_/¯' }
     		};
 
-        var reply = results[emotion] || results['default'];
+        var writing_emoticons = {
+          analytical: '(indeed)',
+          confident: '(winning)',
+          tentative: '(disappear)'
+        };
+
+        var reply = replies[emotion] || replies['default'];
+
+        reply.message += writing_emoticons[writing] || writing_emoticons['default'];
 
 	      callback({
 	        color: reply.color,
