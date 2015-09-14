@@ -27,5 +27,10 @@ module.exports.hipchat = {
       event: 'room_message',
       pattern: '^/mood.*',
     }
-  }
-}
+  },
+
+  historyFilters: [
+    [/(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/g, '']
+  ]
+
+};

@@ -61,6 +61,19 @@ exports.history = function(context, cb) {
       });
     }
 
-    cb(null, _.pluck(messageHistory, 'message').join('\n'));
+    var messageHistory = _.pluck(messageHistory, 'message').join('\n');
+    messageHistory = HipChat.filterHistory(messageHistory);
+
+    cb(null, messageHistory);
   });
+}
+
+exports.filterHistory = function(history) {
+  var filters = sails.config.hipchat.historyFilters;
+
+  for (var i = 0; i < filters.length; i++) {
+    history = history.replace(filters[i][0], filters[i][1]);
+  }
+
+  return history;
 }
