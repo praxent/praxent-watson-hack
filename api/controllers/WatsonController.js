@@ -8,7 +8,20 @@
 module.exports = {
 
   mood: function(req, res) {
-    res.ok(ToneAnalyzer.analyzeTone("yo"));
+
+    var context = HipChat.commandContext(req.body);
+    sails.log.info(context);
+
+    // @todo: Replace with call to Watson!
+    var mood = context.join(' #') + ' mood: ¯\\_(ツ)_/¯';
+
+    res.json({
+      color: 'green',
+      message: mood,
+      notify: false,
+      message_format: 'text'
+    });
+
   }
 
 };
