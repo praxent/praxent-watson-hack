@@ -13,7 +13,7 @@ module.exports = {
     sails.log.info(context);
 
     // @todo: Replace with call to Watson!
-    var mood = '¯\\_(ツ)_/¯';
+    var mood = context.join(' #') + ' mood: ¯\\_(ツ)_/¯';
 
     res.json({
       color: 'green',
