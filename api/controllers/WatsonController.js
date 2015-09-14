@@ -8,6 +8,10 @@
 module.exports = {
 
   mood: function(req, res) {
+
+    var context = HipChat.commandContext(req.body);
+    sails.log.info(context);
+
     // @todo: Replace with call to Watson!
     var mood = '¯\\_(ツ)_/¯';
 
