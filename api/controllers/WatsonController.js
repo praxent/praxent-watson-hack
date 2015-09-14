@@ -12,20 +12,18 @@ module.exports = {
     if (!req.body) return res.forbidden();
 
     var context = HipChat.commandContext(req.body);
+
     HipChat.history(context, function(err, messageText) {
 
-      // @todo: Replace with call to Watson analyzing 'messageText'!
-      sails.log.info(messageText);
-      var mood = '¯\\_(ツ)_/¯';
+      sails.log.info("HipChat history: ", messageText);
 
-      res.json({
-        color: 'green',
-        message: mood,
-        notify: false,
-        message_format: 'text'
+      ReplyBuilder.buildReply(messageText, function(response) {
+      	sails.log.info(response);
+      	res.json(response);
       });
 
     });
+
   }
 
 };
