@@ -8,7 +8,7 @@
 module.exports = {
 
   capabilities: function(req, res) {
-    res.json(sails.config.hipchat.capabilities);
+    res.json(sails.config.hipchat.integration);
   }
 
 };

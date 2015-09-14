@@ -8,7 +8,15 @@
 module.exports = {
 
   mood: function(req, res) {
-    res.ok('¯\\_(ツ)_/¯');
+    // @todo: Replace with call to Watson!
+    var mood = '¯\\_(ツ)_/¯';
+
+    res.json({
+      color: 'green',
+      message: mood,
+      notify: false,
+      message_format: 'text'
+    });
   }
 
 };
