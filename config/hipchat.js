@@ -9,18 +9,19 @@ module.exports.hipchat = {
     },
     capabilities: {
       hipchatApiConsumer: {
+        fromName: "Watson"
         scopes: [
           "send_notification"
         ]
-      }
-    },
-    webhook: [
-      {
-        "url": "https://praxent-watson.herokuapp.com/watson/mood",
-        "event": "room_message",
-        "pattern": "^/mood.*",
-        "name": "Mood"
       },
-    ]
+      webhook: [
+        {
+          "url": "https://praxent-watson.herokuapp.com/watson/mood",
+          "event": "room_message",
+          "pattern": "^/mood.*",
+          "name": "Mood"
+        },
+      ]
+    },
   }
 }
