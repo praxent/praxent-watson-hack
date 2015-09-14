@@ -1,25 +1,27 @@
 module.exports.hipchat = {
 
+  botName: 'Watson',
+
   token: process.env.HIPCHAT_TOKEN,
 
   integration: {
-    name: "Praxent HipChat Bot",
-    description: "HipChat bot for the Praxent team.",
-    key: "com.praxent.bot",
+    name: 'Praxent HipChat Bot',
+    description: 'HipChat bot for the Praxent team.',
+    key: 'com.praxent.bot',
     links: {
-      homepage: "https://praxent-watson.herokuapp.com/",
-      self: "https://praxent-watson.herokuapp.com/hipchat/capabilities"
+      homepage: 'https://praxent-watson.herokuapp.com/',
+      self: 'https://praxent-watson.herokuapp.com/hipchat/capabilities'
     },
     vendor: {
-      name: "Praxent",
-      url: "http://praxent.com"
+      name: 'Praxent',
+      url: 'http://praxent.com'
     },
     capabilities: {
       hipchatApiConsumer: {
-        fromName: "Watson",
+        fromName: 'Watson',
         scopes: [
-          "send_notification",
-          "view_messages"
+          'send_notification',
+          'view_messages'
         ]
       }
     },

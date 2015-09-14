@@ -54,6 +54,11 @@ exports.history = function(context, cb) {
 
     var messageHistory = history.items;
 
+    // Filter out all messages sent by the HipChat bot.
+    messageHistory = _.filter(history.items, function(entry) {
+      return entry.from !== sails.config.hipchat.botName;
+    });
+
     // Limit the returned data to only messages from the requested user.
     if (context[1]) {
       messageHistory = _.filter(history.items, function(entry) {
