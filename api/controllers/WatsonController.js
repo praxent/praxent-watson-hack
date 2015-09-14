@@ -15,6 +15,7 @@ module.exports = {
     HipChat.history(context, function(err, messageText) {
 
       // @todo: Replace with call to Watson analyzing 'messageText'!
+      sails.log.info(messageText);
       var mood = '¯\\_(ツ)_/¯';
 
       res.json({
