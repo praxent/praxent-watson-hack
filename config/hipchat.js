@@ -13,15 +13,15 @@ module.exports.hipchat = {
         scopes: [
           "send_notification"
         ]
-      },
-      webhook: [
-        {
-          "url": "https://praxent-watson.herokuapp.com/watson/mood",
-          "event": "room_message",
-          "pattern": "^/mood.*",
-          "name": "Mood"
-        },
-      ]
+      }
     },
+  },
+
+  hooks: {
+    mood: {
+      url: 'watson/mood',
+      event: 'room_message',
+      pattern: '^/mood.*',
+    }
   }
 }
