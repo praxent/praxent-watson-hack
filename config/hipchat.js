@@ -9,7 +9,7 @@ module.exports.hipchat = {
     },
     capabilities: {
       hipchatApiConsumer: {
-        fromName: "Watson"
+        fromName: "Watson",
         scopes: [
           "send_notification"
         ]
