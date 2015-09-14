@@ -1,16 +1,12 @@
-var SMILEY = ":-)";
 var watson = require('watson-developer-cloud');
-var authUrl = "https://gateway.watsonplatform.net/tone-analyzer-experimental/api";
-var authorization = watson.authorization(sails.config.watson);
-
-function authCallback(err, token) {
-  console.log("err: " + err);
-  console.log("token: " + token);
-}
+var tone_analyzer = watson.tone_analyzer({
+  username:sails.config.watson.username,
+  password:sails.config.watson.password,
+  version:'v1'
+});
 
 module.exports = {
-  analyzeTone: function(text) {
-    authorization.getToken({url:authUrl}, authCallback);
-    return SMILEY;
+  analyzeTone: function(text, callback) {
+    tone_analyzer.tone({text:"test"}, callback);
   }
 };
