@@ -9,17 +9,22 @@ module.exports = {
 
   mood: function(req, res) {
 
+    if (!req.body) return res.forbidden();
+
     var context = HipChat.commandContext(req.body);
-    sails.log.info(context);
+    HipChat.history(context, function(err, messageText) {
 
-    // @todo: Replace with call to Watson!
-    var mood = context.join(' #') + ' mood: ¯\\_(ツ)_/¯';
+      // @todo: Replace with call to Watson analyzing 'messageText'!
+      sails.log.info(messageText);
+      var mood = '¯\\_(ツ)_/¯';
 
-    res.json({
-      color: 'green',
-      message: mood,
-      notify: false,
-      message_format: 'text'
+      res.json({
+        color: 'green',
+        message: mood,
+        notify: false,
+        message_format: 'text'
+      });
+
     });
 
   }

@@ -1,3 +1,5 @@
+var HipChatter = require('hipchatter'),
+    hc = new HipChatter(sails.config.hipchat.token);
 
 /**
  * Prepare the hook configuration from the Sails config object.
@@ -24,7 +26,7 @@ exports.parseHooks = function() {
  * Parse the message received by a HipChat /slash command for context details.
  *
  * @param {object} response The data posted by HipChat.
- * @return {array} Context ('user' or 'room') with the ID.
+ * @return {array} Room ID and user ID (if available).
  */
 exports.commandContext = function(response) {
   if (!response.item) {
@@ -34,8 +36,31 @@ exports.commandContext = function(response) {
 
   if (response.item.message.mentions && response.item.message.mentions.length > 0) {
     // Only the user ID from the first @mention will be returned.
-    return ['user', response.item.message.mentions[0].id];
+    return [response.item.room.id, response.item.message.mentions[0].id];
   }
 
-  return ['room', response.item.room.id];
+  return [response.item.room.id];
+};
+
+/**
+ * Return all messages from the room or user.
+ *
+ * @param {array} context A room ID and user ID (optional).
+ * @param {function} cb A callback.
+ */
+exports.history = function(context, cb) {
+  hc.history(context[0], function(err, history) {
+    if (err) return cb(err);
+
+    var messageHistory = history.items;
+
+    // Limit the returned data to only messages from the requested user.
+    if (context[1]) {
+      messageHistory = _.filter(history.items, function(entry) {
+        return entry.from.id === context[1];
+      });
+    }
+
+    cb(null, _.pluck(messageHistory, 'message').join('\n'));
+  });
 }

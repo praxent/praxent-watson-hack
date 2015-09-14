@@ -1,4 +1,7 @@
 module.exports.hipchat = {
+
+  token: process.env.HIPCHAT_TOKEN,
+
   integration: {
     name: "Praxent HipChat Bot",
     description: "HipChat bot for the Praxent team.",
@@ -11,7 +14,8 @@ module.exports.hipchat = {
       hipchatApiConsumer: {
         fromName: "Watson",
         scopes: [
-          "send_notification"
+          "send_notification",
+          "view_messages"
         ]
       }
     },
