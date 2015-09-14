@@ -7,4 +7,8 @@
 
 module.exports = {
 
+  mood: function(req, res) {
+    res.ok('¯\\_(ツ)_/¯');
+  }
+
 };
