@@ -1,0 +1,53 @@
+/**
+ * CheersController
+ *
+ * @description :: Server-side logic for managing cheers
+ * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
+ */
+
+module.exports = {
+
+  send: function(req, res) {
+    var userId = req.param('id');
+    if (req.body) {
+      var context = HipChat.commandContext(req.body);
+      userId = context[1];
+    }
+
+    if (!userId) {
+      return res.json({
+        color: 'green',
+        message: 'Cheers for everybody!',
+        notify: false,
+        message_format: 'text'
+      });
+    }
+
+    Cheers.findOne({ user: userId }, function(err, user) {
+
+      var sendResponse = function(err, cheeredUser) {
+        if (Array.isArray(cheeredUser)) {
+          cheeredUser = cheeredUser[0];
+        }
+
+        var message = cheeredUser.user + ' has received ' + cheeredUser.count + ' cheers!';
+        return res.json({
+          color: 'green',
+          message: message,
+          notify: false,
+          message_format: 'text'
+        });
+      };
+
+      // If the user hasn't received a cheers yet, cheer them now!
+      if (err || !user) {
+        return Cheers.create({ user: userId }, sendResponse);
+      }
+
+      // Increment their cheer!
+      Cheers.update(user.id, { count: user.count + 1 }, sendResponse);
+
+    });
+  }
+
+};

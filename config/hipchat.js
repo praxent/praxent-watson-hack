@@ -32,6 +32,11 @@ module.exports.hipchat = {
       url: 'watson/mood',
       event: 'room_message',
       pattern: '^/mood.*',
+    },
+    cheers: {
+      url: 'cheers/send',
+      event: 'room_message',
+      pattern: '^/cheers.*',
     }
   },
 
