@@ -12,7 +12,7 @@ module.exports = {
     		var message,
     				color;
 
-    		var emotion = 'angry'; // tone.emotion
+    		var emotion = tone.emotion;
 
     		// var results = {
     		// 	cheerful: { color: 'green', message: 'saf' }
@@ -33,7 +33,9 @@ module.exports = {
 		        color = 'red';
 		        message = '(tableflip)';
     				break;
-    			default: '';
+    			default:
+    				color = 'grey',
+    				message = '¯\\_(ツ)_/¯';
     		}
 
 	      callback({
