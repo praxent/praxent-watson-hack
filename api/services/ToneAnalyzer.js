@@ -26,9 +26,9 @@ module.exports = {
 function getToneFromJsonResult(jsonResult) {
   var tone = {};
 
-  var emotion = jsonResult["children"][0]["children"];
-  var writing = jsonResult["children"][1]["children"];
-  var social  = jsonResult["children"][2]["children"];
+  var emotion = jsonResult.children[0].children;
+  var writing = jsonResult.children[1].children;
+  var social  = jsonResult.children[2].children;
 
   tone.emotionValues = [
     { name: "cheerful", value : emotion[0].normalized_score },
@@ -58,9 +58,9 @@ function getToneFromJsonResult(jsonResult) {
     return -element.value;
   });
 
-  tone.emotion = tone.emotionValues[0].value == 0 ? null : tone.emotionValues[0].name;
-  tone.writing = tone.writingValues[0].value == 0 ? null : tone.writingValues[0].name;
-  tone.social = tone.socialValues[0].value == 0 ? null : tone.socialValues[0].name;
+  tone.emotion = tone.emotionValues[0].value === 0 ? null : tone.emotionValues[0].name;
+  tone.writing = tone.writingValues[0].value === 0 ? null : tone.writingValues[0].name;
+  tone.social = tone.socialValues[0].value === 0 ? null : tone.socialValues[0].name;
 
   return tone;
 }
