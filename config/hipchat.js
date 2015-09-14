@@ -36,7 +36,8 @@ module.exports.hipchat = {
   },
 
   historyFilters: [
-    [/(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/g, '']
+    [/(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/g, ''], // Remove URLs
+    [/\@\S+|\/\S+/g, ''], // Remove @mention and /command messages
   ]
 
 };
