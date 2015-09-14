@@ -10,6 +10,10 @@ module.exports.hipchat = {
       homepage: "https://praxent-watson.herokuapp.com/",
       self: "https://praxent-watson.herokuapp.com/hipchat/capabilities"
     },
+    vendor: {
+      name: "Praxent",
+      url: "http://praxent.com"
+    },
     capabilities: {
       hipchatApiConsumer: {
         fromName: "Watson",
