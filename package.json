@@ -25,7 +25,8 @@
     "rc": "~0.5.0",
     "sails": "~0.11.0",
     "sails-disk": "~0.10.0",
-    "sails-hook-machines": "^1.1.0"
+    "sails-hook-machines": "^1.1.0",
+    "watson-developer-cloud": "^0.10.1"
   },
   "scripts": {
     "postinstall": "./node_modules/.bin/bower install",
