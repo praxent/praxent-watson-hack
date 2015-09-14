@@ -26,12 +26,6 @@ var jsFilesToInject = [
   // Load sails.io before everything else
   'js/sails.io.js',
 
-  'components/angular/angular.js',
-  'components/angular-animate/angular-animate.js',
-  'components/angular-aria/angular-aria.js',
-  'components/angular-material/angular-material.js',
-  'components/angular-sails-socket/dist/angular-sails-socket.min.js',
-
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
   'js/**/*.js'
