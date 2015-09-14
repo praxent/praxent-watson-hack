@@ -8,7 +8,7 @@
 module.exports = {
 
   mood: function(req, res) {
-    res.ok('¯\\_(ツ)_/¯');
+    res.ok(ToneAnalyzer.analyzeTone("yo"));
   }
 
 };
