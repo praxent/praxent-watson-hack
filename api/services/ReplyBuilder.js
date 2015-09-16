@@ -23,7 +23,8 @@ module.exports = {
       var writing_emoticons = {
         analytical: '(indeed)',
         confident: '(winning)',
-        tentative: '(disappear)'
+        tentative: '(disappear)',
+        default: ''
       };
 
       var reply = replies[emotion] || replies['default'];
