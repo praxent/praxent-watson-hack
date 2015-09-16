@@ -4,7 +4,7 @@
  * @description :: Server-side logic for managing cheers
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
-var HipChat = require('machinepack-hipchat');
+var HipChatAPI = require('machinepack-hipchat');
 
 module.exports = {
 
@@ -32,7 +32,7 @@ module.exports = {
         }
 
         // Lookup the user @mention from their stored user ID.
-        HipChat.viewUser({
+        HipChatAPI.viewUser({
           token: sails.config.hipchat.token,
           userId: cheeredUser.user,
         }).exec({
