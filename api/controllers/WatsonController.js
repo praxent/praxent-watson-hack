@@ -15,7 +15,15 @@ module.exports = {
 
     HipChat.history(context, function(err, messageText) {
 
-      sails.log.info("HipChat history: ", messageText);
+      sails.log.verbose('HipChat history received:', messageText);
+      if (!messageText) {
+        return res.json({
+          color: 'gray',
+          message: 'I simply cannot read minds.',
+          notify: false,
+          message_format: 'text'
+        });
+      }
 
       ReplyBuilder.buildReply(messageText, function(response) {
       	sails.log.info(response);
